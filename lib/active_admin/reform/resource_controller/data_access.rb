@@ -24,7 +24,6 @@ module ActiveAdmin
         # @param attributes [(Hash)]
         # @return [ActiveRecord::Base, Reform::Form]
         def assign_attributes(resource, attributes)
-          byebug
           if resource.is_a?(::Reform::Form)
             resource.validate(*attributes) unless action_name == 'new'
             resource
@@ -39,7 +38,6 @@ module ActiveAdmin
         #
         # @return [void]
         def save_resource(object)
-          byebug
           if resource.is_a?(::Reform::Form)
             super unless object.errors.any?
           else
