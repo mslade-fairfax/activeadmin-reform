@@ -12,6 +12,10 @@ The purpose of this gem is to provide ability to define custom ActiveAdmin-speci
 your models. Using form objects allows you to define such validations without cluttering model's code
 and simplifies building test objects.
  
+This is a fork of https://github.com/bolshakov/activeadmin-reform
+
+It is more automatic than the original.  It doesn't require an include in every form that activeadmin uses.  It also leaves validation/filtering of parameters to reform, so `permit_params` isn't required.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -36,8 +40,6 @@ Define your form object and include our mixin (`ActiveAdmin::Reform::ActiveRecor
 require 'reform'
 
 class AuthorForm < Reform::Form
-  include ActiveAdmin::Reform::ActiveRecord
-
   model :author
 
   property :last_name, validates: { presence: true }
